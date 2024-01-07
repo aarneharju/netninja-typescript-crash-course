@@ -54,24 +54,6 @@ let person = {
   score: 235,
 };
 
-// Tuples
-
-let address: [string, number] = ['123 Main St', 98076];
-
-// Enums
-
-enum Color {
-  Red,
-  Green,
-  Blue,
-}
-
-let myColor: Color = Color.Green;
-
-// Any
-
-let car: any = 'BMW';
-
 //---------
 // Functions
 //---------
@@ -113,3 +95,39 @@ age = false; // Basically turns typescript into normal javascript
 let things: any[] = ['hello', true, 123, null];
 
 things.push({ id: 234 });
+
+//-------
+// Tuples
+//-------
+
+let address: [string, number, boolean] = ['123 Main St', 98076, true];
+
+let hsla: [number, string, string, number] = [200, '100%', '50%', 0.5];
+
+function useCoords(): [number, number] {
+  // get coords
+  const lat = 100;
+  const long = 50;
+
+  return [lat, long];
+}
+
+//-------------
+// Named tuples
+//-------------
+
+let user1: [name: string, age: number];
+
+user1 = ['Bob', 30];
+
+// -----
+// Enums
+// -----
+
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+
+let myColor: Color = Color.Green;
