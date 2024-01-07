@@ -131,3 +131,43 @@ enum Color {
 }
 
 let myColor: Color = Color.Green;
+
+//-----------
+// Interfaces
+//-----------
+
+interface Author {
+  name: string;
+  avatar: string;
+}
+
+const authorOne: Author = {
+  name: 'John Doe',
+  avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+};
+
+interface Post {
+  title: string;
+  body: string;
+  tags: string[];
+  create_at: Date;
+  author: Author;
+}
+
+const newPost: Post = {
+  title: 'My awesome post',
+  body: 'Lorem ipsum dolor sit amet',
+  tags: ['typescript', 'webdev'],
+  create_at: new Date(),
+  author: authorOne,
+};
+
+// Interfaces as function argument types
+
+function createPost(post: Post): void {
+  console.log(`Created post ${post.title} by ${post.author.name}`);
+}
+
+createPost(newPost);
+
+// Interfaces with arrays
