@@ -1,8 +1,8 @@
-let age: number = 30;
+let age1: number = 30;
 let firstName: string = 'Mario';
 let isFictional: boolean;
 
-age = 31;
+age1 = 31;
 firstName = 'Luigi';
 isFictional = false;
 
@@ -33,9 +33,9 @@ fruits.push('grapes');
 
 const f = fruits[3];
 
-let things = [1, true, 'hello'];
+let things1 = [1, true, 'hello'];
 
-const t = things[0]; // not necessary always a number
+const t = things1[0]; // not necessary always a number
 
 //----------------
 // Object literals
@@ -96,3 +96,20 @@ function addAllNumbers(items: number[]): void {
 function formatGreeting(name: string, greeting: string) {
   return `${greeting}, ${name}`;
 }
+
+//---------
+// Any type
+//---------
+
+let age: any;
+
+age = 30;
+age = false; // Basically turns typescript into normal javascript
+
+//-------------------
+// Any type in arrays
+//-------------------
+
+let things: any[] = ['hello', true, 123, null];
+
+things.push({ id: 234 });
