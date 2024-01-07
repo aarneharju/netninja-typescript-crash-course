@@ -71,3 +71,28 @@ let myColor: Color = Color.Green;
 // Any
 
 let car: any = 'BMW';
+
+//---------
+// Functions
+//---------
+
+function addTwoNumbers(a: number, b: number): number {
+  return a + b;
+}
+
+const subtractTwoNumbers = (a: number, b: number): number => {
+  return a - b;
+};
+
+// When nothing returned, the function return type is void. Which will be inferred, if not set manually
+
+function addAllNumbers(items: number[]): void {
+  const total = items.reduce((a, c) => a + c, 0);
+  console.log(total);
+}
+
+// Return type inference
+
+function formatGreeting(name: string, greeting: string) {
+  return `${greeting}, ${name}`;
+}
