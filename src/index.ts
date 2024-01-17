@@ -240,3 +240,57 @@ function swapIdType(id: Id): Id {
 
   return id;
 }
+
+//------------
+// Type guards
+//------------
+
+type Id2 = number | string;
+
+function swapIdType2(id2: Id2) {
+  if (typeof id2 === 'string') {
+    // Can use string methods
+    return parseInt(id2);
+  } else {
+    // Can use number methods and properties
+    return id2.toString();
+  }
+}
+
+const idOne = swapIdType2(1);
+const idTwo = swapIdType2('2');
+
+console.log(idOne, idTwo);
+
+//------------------
+// Tagged interfaces
+//------------------
+
+interface User2 {
+  type: 'user';
+  username: string;
+  email: string;
+  id: Id;
+}
+
+interface Person2 {
+  type: 'person';
+  firstname: string;
+  age: number;
+  id: Id;
+}
+
+function logDetails(value: User2 | Person2): void {
+  if (value.type === 'user') {
+    console.log(value.email, value.username);
+  } else {
+    console.log(value.firstname, value.age);
+  }
+}
+
+logDetails({
+  type: 'user',
+  username: 'john',
+  email: 'john@gmail.com',
+  id: 123,
+});

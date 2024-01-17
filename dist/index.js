@@ -147,3 +147,30 @@ function swapIdType(id) {
     // parseInt(id) --> not allowed
     return id;
 }
+function swapIdType2(id2) {
+    if (typeof id2 === 'string') {
+        // Can use string methods
+        return parseInt(id2);
+    }
+    else {
+        // Can use number methods and properties
+        return id2.toString();
+    }
+}
+const idOne = swapIdType2(1);
+const idTwo = swapIdType2('2');
+console.log(idOne, idTwo);
+function logDetails(value) {
+    if (value.type === 'user') {
+        console.log(value.email, value.username);
+    }
+    else {
+        console.log(value.firstname, value.age);
+    }
+}
+logDetails({
+    type: 'user',
+    username: 'john',
+    email: 'john@gmail.com',
+    id: 123,
+});
