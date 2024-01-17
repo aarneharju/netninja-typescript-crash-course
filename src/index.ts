@@ -209,3 +209,34 @@ function formatUser(user: User): void {
 
 formatUser(userOne);
 formatUser({ name: 'luigi', score: 30 });
+
+//------------
+// Union types
+//------------
+
+let someId: string | number;
+
+someId = 1;
+someId = '3';
+
+let email: string | null;
+
+email = 'test@test.com';
+email = null;
+
+type Id = number | string;
+let anotherId: Id;
+anotherId = 'aslkdjp0eijf';
+anotherId = 123123123123;
+
+//-------------------
+// Union type pitfall
+//-------------------
+
+function swapIdType(id: Id): Id {
+  // Can only use props and methdods common to
+  // both numbers and string types
+  // parseInt(id) --> not allowed
+
+  return id;
+}
